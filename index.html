@@ -613,33 +613,49 @@
         </div>
         
         <audio id="wedding-music" loop>
-            <source src="City Of Stars - La La Land (Gavin James Cover) - Gavin James (1).mp3" type="audio/mpeg">
+            <source src="cityofstars_wedding.mp3" type="audio/mpeg">
             Tu navegador no soporta el elemento de audio.
         </audio>
     </div>
     
     <script>
         // Animación del sello y el sobre
-        const sealOverlay = document.getElementById('sealOverlay');
-        const seal = document.getElementById('seal');
-        const mainContent = document.getElementById('mainContent');
+    const sealOverlay = document.getElementById('sealOverlay');
+    const seal = document.getElementById('seal');
+    const mainContent = document.getElementById('mainContent');
+    const audio = document.getElementById('wedding-music'); // Obtener el elemento de audio aquí
+    let isPlaying = false; // Estado de la música, ya definido abajo
+    
+    sealOverlay.addEventListener('click', function() {
+        // Añade la clase 'open' para animar las solapas del sobre
+        sealOverlay.classList.add('open');
+        seal.classList.add('seal-open');
         
-        sealOverlay.addEventListener('click', function() {
-            // Añade la clase 'open' para animar las solapas del sobre
-            sealOverlay.classList.add('open');
-            seal.classList.add('seal-open');
-            
-            setTimeout(() => {
-                sealOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    sealOverlay.style.display = 'none';
-                    mainContent.classList.remove('hidden');
-                    
-                    // Iniciar animaciones scroll después de abrir el sello
-                    checkScroll();
-                }, 500);
-            }, 1500);
+        // Intentar reproducir audio al instante (puede ser bloqueado por el navegador)
+        audio.play().catch(error => {
+            console.log("La reproducción automática de audio fue bloqueada: ", error);
+            // Si es bloqueado, el usuario tendrá que usar el botón de música
         });
+        
+        setTimeout(() => {
+            sealOverlay.style.opacity = '0';
+            setTimeout(() => {
+                sealOverlay.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                
+                // --- INICIO DE LA MÚSICA Y CAMBIO DE ICONO AQUÍ ---
+                // Llamamos a toggleMusic para asegurar el estado y el ícono si audio.play() fue bloqueado
+                // Si audio.play() funcionó arriba, toggleMusic() pausará y luego reanudará, manteniendo el ícono actualizado.
+                // Es más seguro dejar que el evento de clic intente reproducir primero.
+                isPlaying = true; // Aseguramos que el estado esté como reproduciendo
+                document.querySelector('.music-control i').className = 'fas fa-pause'; // Cambiamos el icono a pausa
+                // ----------------------------------------------------
+                
+                // Iniciar animaciones scroll después de abrir el sello
+                checkScroll();
+            }, 500);
+        }, 1500);
+    });
         
         // Contador regresivo
         function updateCountdown() {
@@ -661,10 +677,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Control de música
-        const audio = document.getElementById('wedding-music');
-        let isPlaying = false;
-        
+        // Control de música        
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
@@ -695,3 +708,4 @@
     </script>
 </body>
 </html>
+
