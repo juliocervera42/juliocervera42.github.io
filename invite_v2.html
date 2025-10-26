@@ -13,6 +13,7 @@
             --accent-color: #8F9779; /* Grisáceo Olivo */
             --light-color: #F5F5F0; /* Blanco Crema */
             --dark-color: #2F4F4F; /* Gris Pizarra Oscuro */
+            --verde-clarito: #66e583;             
         }
 
         body {
@@ -291,7 +292,6 @@
         .event-card p {
             margin: 10px 0;
             font-weight: 300;
-            /* Se eliminaron los estilos de .address-link */
         }
         
         .event-card i {
@@ -300,12 +300,10 @@
             margin-bottom: 20px;
         }
         
-        /* ------------------------------------------------------------------- */
-        /* ESTILOS DEL BOTÓN "VER UBICACIÓN" (ESTILO MESA DE REGALOS ADAPTADO) */
-        /* ------------------------------------------------------------------- */
+        /* ESTILOS DEL BOTÓN "VER UBICACIÓN" */
         .btn-ubicacion {
             display: inline-block;
-            margin-top: 25px; /* Separación del texto */
+            margin-top: 25px; 
             padding: 12px 25px;
             background: var(--primary-color);
             color: white;
@@ -323,13 +321,14 @@
             color: var(--primary-color);
             border-color: var(--primary-color);
         }
-        /* ------------------------------------------------------------------- */
         
+        /* SECCIONES CON FONDO FIJO (PARALLAX) */
         .dress-code, .child-free {
             background: linear-gradient(rgba(245, 245, 240, 0.9), rgba(245, 245, 240, 0.9)),
                         url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Efecto Parallax */
+            background-position: center;
             padding: 100px 0;
         }
 
@@ -337,6 +336,7 @@
             background: linear-gradient(rgba(245, 245, 240, 0.9), rgba(245, 245, 240, 0.9)),
                         url('https://images.unsplash.com/photo-1549488349-8131379c6d36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
+            background-attachment: fixed; /* Efecto Parallax */
             background-position: center;
         }
         
@@ -358,7 +358,7 @@
         }
         
         .gift-section {
-            background: var(--primary-color);
+            background: var(--secondary-color);
             color: white;
             padding: 80px 0;
         }
@@ -394,13 +394,22 @@
             color: white;
         }
         
+        /* ESTILOS DEL FOOTER ACTUALIZADOS PARA SER IGUAL AL HEADER */
         footer {
-            background: var(--dark-color);
-            color: white;
+            background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(85, 107, 47, 0.8)),
+                        url('cinthyajuliogibli.jpeg'); /* Misma imagen que el header */
+            background-size: cover;
+            background-position: center 30%; /* Misma posición que el header */
+            color: white; /* Texto blanco para el fondo oscuro */
             padding: 50px 0;
             text-align: center;
         }
         
+        /* Ajuste del color h4 en el footer para que sea blanco */
+        footer h4 {
+            color: white;
+        }
+
         .footer-text {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -502,6 +511,11 @@
                 width: 250px;
                 height: 250px;
             }
+
+            /* Ajuste del h4 para el footer en móvil */
+            footer h4 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -543,9 +557,8 @@
         <section id="ceremony">
             <div class="container">
                 <div class="section-title">
-                    <h2>Nuestra Boda</h2>
-                    <p>Nos uniremos en matrimonio ante el osito bimbo y nuestros seres queridos</p>
-                </div>
+                    <p>Acompáñanos a celebrar nuestra boda y ser testigo de nuestra unión. </p>
+                </div>    
                 
                 <div class="event-details">
                     <div class="event-card animate-on-scroll slide-up">
@@ -614,7 +627,7 @@
                 <div class="gift-container animate-on-scroll slide-up">
                     <h4>Sugerencia de regalos</h4>
                     <div class="section-icon">
-                        <i class="fas fa-gift"></i>
+                        <i class="fas fa-gift" style="color: white;"></i>
                     </div>
                     <p>Tu presencia es el mejor regalo que podríamos recibir</p>
                     <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p>                   
@@ -624,6 +637,7 @@
                 </div>
             </div>
         </section>               
+        
         <footer>
             <h4>Confirma Asistencia</h4>
             <div class="container">
@@ -657,8 +671,8 @@
     const sealOverlay = document.getElementById('sealOverlay');
     const seal = document.getElementById('seal');
     const mainContent = document.getElementById('mainContent');
-    const audio = document.getElementById('wedding-music'); // Obtener el elemento de audio aquí
-    let isPlaying = false; // Estado de la música, ya definido abajo
+    const audio = document.getElementById('wedding-music');
+    let isPlaying = false; 
     
     sealOverlay.addEventListener('click', function() {
         // Añade la clase 'open' para animar las solapas del sobre
@@ -668,7 +682,6 @@
         // Intentar reproducir audio al instante (puede ser bloqueado por el navegador)
         audio.play().catch(error => {
             console.log("La reproducción automática de audio fue bloqueada: ", error);
-            // Si es bloqueado, el usuario tendrá que usar el botón de música
         });
         
         setTimeout(() => {
@@ -677,16 +690,13 @@
                 sealOverlay.style.display = 'none';
                 mainContent.classList.remove('hidden');
                 
-                // --- INICIO DE LA MÚSICA Y CAMBIO DE ICONO AQUÍ ---
-                // Si audio.play() funcionó arriba, actualizamos el estado e ícono
+                // Actualiza el estado de la música si la reproducción automática funcionó
                 if (audio.currentTime > 0 && !audio.paused) {
                     isPlaying = true;
                     document.querySelector('.music-control i').className = 'fas fa-pause';
                 } else {
-                    // Si falló, dejamos el ícono de música por defecto
                     document.querySelector('.music-control i').className = 'fas fa-music';
                 }
-                // ----------------------------------------------------
                 
                 // Iniciar animaciones scroll después de abrir el sello
                 checkScroll();
