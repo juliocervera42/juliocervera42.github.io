@@ -631,11 +631,20 @@
                     <p>Con amor, Julio y Cinthya</p>
                     <p>Esperamos compartir este día tan especial contigo</p>
                 </div>
-                
-                <a href="mailto:juliocervera42@gmail.com" class="rsvp-btn">
-                    CONFIRMAR ASISTENCIA
-                </a>
-                
+
+                <form action="https://formsubmit.co/juliocervera42@gmail.com" method="POST" class="rsvp-form">
+                    <input type="hidden" name="_subject" value="¡NUEVA CONFIRMACIÓN DE ASISTENCIA! - Boda Julio y Cinthya">
+
+                    <input type="hidden" name="_next" value="URL_DE_AGRADECIMIENTO_O_LA_MISMA_PAGINA">
+
+                    <p style="font-weight: 500; margin-bottom: 10px;">Ingresa tu nombre completo para confirmar:</p>
+                    <input type="text" name="Nombre_del_Invitado" placeholder="Ej: Diana Laura Sánchez" required 
+                        style="padding: 12px; margin-bottom: 20px; width: 100%; max-width: 300px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Montserrat', sans-serif;">
+
+                    <button type="submit" class="rsvp-btn">
+                        CONFIRMAR ASISTENCIA
+                    </button>
+                </form>
                 <p style="margin-top: 40px; font-size: 0.9rem;">
                     Por favor confirmar antes del 20 de Noviembre de 2025.
                 </p>
