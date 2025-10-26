@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #556B2F;
-            --secondary-color: #6B8E23;
-            --accent-color: #8F9779;
-            --light-color: #F5F5F0;
-            --dark-color: #2F4F4F;
+            --primary-color: #556B2F; /* Verde Olivo Oscuro */
+            --secondary-color: #6B8E23; /* Verde Olivo Claro */
+            --accent-color: #8F9779; /* Grisáceo Olivo */
+            --light-color: #F5F5F0; /* Blanco Crema */
+            --dark-color: #2F4F4F; /* Gris Pizarra Oscuro */
         }
 
         body {
@@ -37,9 +37,7 @@
             align-items: center;
             z-index: 9999;
             cursor: pointer;
-
-            /* CAMBIO REALIZADO: Color de fondo verde olivo */
-            background-color: #556B2F; 
+            background-color: var(--primary-color);
             box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1); 
         }
         
@@ -264,6 +262,7 @@
             background: white;
             border-radius: 10px;
             padding: 40px 30px;
+            padding-bottom: 20px; /* Ajuste para el botón */
             width: 350px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -292,26 +291,39 @@
         .event-card p {
             margin: 10px 0;
             font-weight: 300;
+            /* Se eliminaron los estilos de .address-link */
         }
-
-        /* ESTILO EXTRA para los enlaces de dirección */
-        .event-card .address-link {
-            text-decoration: none; /* Quita el subrayado */
-            color: var(--dark-color); /* Mantiene el color del texto */
-            display: block; /* Para que ocupe todo el ancho */
-            transition: color 0.3s;
-        }
-        
-        .event-card .address-link:hover {
-            color: var(--secondary-color); /* Color al pasar el mouse */
-        }
-        /* FIN ESTILO EXTRA */
         
         .event-card i {
             font-size: 2.5rem;
             color: var(--secondary-color);
             margin-bottom: 20px;
         }
+        
+        /* ------------------------------------------------------------------- */
+        /* ESTILOS DEL BOTÓN "VER UBICACIÓN" (ESTILO MESA DE REGALOS ADAPTADO) */
+        /* ------------------------------------------------------------------- */
+        .btn-ubicacion {
+            display: inline-block;
+            margin-top: 25px; /* Separación del texto */
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-color);
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-ubicacion:hover {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        /* ------------------------------------------------------------------- */
         
         .dress-code, .child-free {
             background: linear-gradient(rgba(245, 245, 240, 0.9), rgba(245, 245, 240, 0.9)),
@@ -540,34 +552,26 @@
                         <i class="fas fa-church"></i>
                         <h4>Ceremonia Religiosa</h4>
                         
-                        <p>
-                            <a href="https://www.google.com/maps/place/Templo+de+San+Patricio/@21.1264753,-101.611713,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbc2bc1877207:0xf4da89528fc0beae!8m2!3d21.1264753!4d-101.611713!16s%2Fg%2F11c1wp2vrq?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" class="address-link" target="_blank">
-                                <i class="fas fa-map-marker-alt"></i> Templo de San Patricio 
-                            </a>
-                        </p>
-                        <p>
-                            <a href="https://www.google.com/maps/place/Templo+de+San+Patricio/@21.1264753,-101.611713,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbc2bc1877207:0xf4da89528fc0beae!8m2!3d21.1264753!4d-101.611713!16s%2Fg%2F11c1wp2vrq?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" class="address-link" target="_blank">
-                                <i class="fas fa-address-card"></i> Blvd. Guanajuato 3410, Residencial Punta del Este 
-                            </a>
-                        </p>
+                        <p><i class="fas fa-map-marker-alt"></i> Templo de San Patricio</p>
+                        <p><i class="fas fa-address-card"></i> Blvd. Guanajuato 3410, Residencial Punta del Este</p>
                         <p><i class="fas fa-clock"></i> 18:00 horas</p>
+                        
+                        <a href="https://www.google.com/maps/place/Templo+de+San+Patricio/@21.1264753,-101.611713,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbc2bc1877207:0xf4da89528fc0beae!8m2!3d21.1264753!4d-101.611713!16s%2Fg%2F11c1wp2vrq?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-ubicacion">
+                            Ver Ubicación
+                        </a>
                     </div>
                     
                     <div class="event-card animate-on-scroll slide-up" style="transition-delay: 0.2s">
                         <i class="fas fa-glass-cheers"></i>
                         <h4>Recepción</h4>
                         
-                        <p>
-                            <a href="https://www.google.com/maps/place/Vo+Garden/@21.1142766,-101.5863809,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbdc4295899db:0x87084366f6875542!8m2!3d21.1142766!4d-101.5863809!16s%2Fg%2F11lc9kz9g2?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" class="address-link" target="_blank">
-                                <i class="fas fa-map-marker-alt"></i> Salón VO Garden
-                            </a>
-                        </p>
-                        <p>
-                            <a href="https://www.google.com/maps/place/Vo+Garden/@21.1142766,-101.5863809,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbdc4295899db:0x87084366f6875542!8m2!3d21.1142766!4d-101.5863809!16s%2Fg%2F11lc9kz9g2?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D class="address-link" target="_blank">
-                                <i class="fas fa-address-card"></i> Robin Americano & Calle de la Espátula, Fraccionamiento Paraíso Real
-                            </a>
-                        </p>
+                        <p><i class="fas fa-map-marker-alt"></i> Salón VO Garden</p>
+                        <p><i class="fas fa-address-card"></i> Robin Americano & Calle de la Espátula, Fraccionamiento Paraíso Real</p>
                         <p><i class="fas fa-clock"></i> 19:30 horas</p>
+                        
+                        <a href="https://www.google.com/maps/place/Vo+Garden/@21.1142766,-101.5863809,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbdc4295899db:0x87084366f6875542!8m2!3d21.1142766!4d-101.5863809!16s%2Fg%2F11lc9kz9g2?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-ubicacion">
+                            Ver Ubicación
+                        </a>
                     </div>
                 </div>
             </div>
@@ -674,11 +678,14 @@
                 mainContent.classList.remove('hidden');
                 
                 // --- INICIO DE LA MÚSICA Y CAMBIO DE ICONO AQUÍ ---
-                // Llamamos a toggleMusic para asegurar el estado y el ícono si audio.play() fue bloqueado
-                // Si audio.play() funcionó arriba, toggleMusic() pausará y luego reanudará, manteniendo el ícono actualizado.
-                // Es más seguro dejar que el evento de clic intente reproducir primero.
-                isPlaying = true; // Aseguramos que el estado esté como reproduciendo
-                document.querySelector('.music-control i').className = 'fas fa-pause'; // Cambiamos el icono a pausa
+                // Si audio.play() funcionó arriba, actualizamos el estado e ícono
+                if (audio.currentTime > 0 && !audio.paused) {
+                    isPlaying = true;
+                    document.querySelector('.music-control i').className = 'fas fa-pause';
+                } else {
+                    // Si falló, dejamos el ícono de música por defecto
+                    document.querySelector('.music-control i').className = 'fas fa-music';
+                }
                 // ----------------------------------------------------
                 
                 // Iniciar animaciones scroll después de abrir el sello
