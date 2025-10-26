@@ -411,21 +411,26 @@
             margin-bottom: 30px;
         }
         
+        /* Estilos para el nuevo botón de RSVP */
         .rsvp-btn {
             display: inline-block;
             padding: 15px 40px;
-            background: var(--secondary-color);
-            color: white;
+            background: #FFD700; /* Dorado para destacar el botón de acción */
+            color: var(--dark-color);
             text-decoration: none;
             border-radius: 30px;
-            font-weight: 500;
+            font-weight: 700; /* Más peso para que se vea importante */
+            font-size: 1.1rem;
             transition: all 0.3s;
-            border: 2px solid var(--secondary-color);
+            border: 2px solid #FFD700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 20px; /* Separación del texto de abajo */
         }
         
         .rsvp-btn:hover {
             background: transparent;
-            color: var(--secondary-color);
+            color: #FFD700;
+            border-color: #FFD700;
         }
         
         .music-control {
@@ -517,6 +522,11 @@
             footer h4 {
                 font-size: 2rem;
             }
+            
+            .rsvp-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -562,7 +572,7 @@
                 <div class="event-details">
                     <div class="event-card animate-on-scroll slide-up">
                         <i class="fas fa-church"></i>
-                        <h4>Ceremonia Religiosa</h4> 
+                        <h4>Ceremonia Religiosa</h4>
                         <p><i class="fas fa-map-marker-alt"></i> Templo de San Patricio</p>
                         <p><i class="fas fa-address-card"></i> Blvd. Guanajuato 3410, Residencial Punta del Este</p>
                         <p><i class="fas fa-clock"></i> 18:00 horas</p>
@@ -589,6 +599,7 @@
         
         <section class="dress-code" id="dresscode">
             <div class="container">
+                
                 <div class="content-card animate-on-scroll slide-up">
                     <div class="section-title" style="margin-top: 0; margin-bottom: 30px;">
                         <h2>Dress Code</h2> 
@@ -601,9 +612,9 @@
             <div class="container">
                 <div class="content-card animate-on-scroll slide-up">
                     <p>Queremos que disfruten y bailen sin parar, es por ello que hemos decidido celebrar nuestra boda </p>
-                    <h2>Sin Niños</h2> 					                      
+                    <h2>Sin Niños</h2>
                     <p>Deseamos que esta sea una oportunidad para que gocen de una noche sin preocupaciones.</p>
-                    <p>¡Agradecemos su comprensión!</p> 					                      
+                    <p>¡Agradecemos su comprensión!</p>
                 </div>
             </div>
         </section>
@@ -616,14 +627,13 @@
                         <i class="fas fa-gift" style="color: white;"></i>
                     </div>
                     <p>Tu presencia es el mejor regalo que podríamos recibir.</p>
-                    <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p> 				               
+                    <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p>
                     <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51750416" class="gift-link" target="_blank">
                         <i class="fas fa-store"></i> Liverpool - Mesa de Regalos
                     </a>
                 </div>
             </div>
-        </section> 					              
-        
+        </section>        
         <footer>
             <h4>Confirma Asistencia</h4>
             <div class="container">
@@ -631,26 +641,18 @@
                     <p>Con amor, Julio y Cinthya</p>
                     <p>Esperamos compartir este día tan especial contigo</p>
                 </div>
-
-                <form action="https://formsubmit.co/juliocervera42@gmail.com" method="POST" class="rsvp-form">
-                    <input type="hidden" name="_subject" value="¡NUEVA CONFIRMACIÓN DE ASISTENCIA! - Boda Julio y Cinthya">
-
-                    <input type="hidden" name="_next" value="URL_DE_AGRADECIMIENTO_O_LA_MISMA_PAGINA">
-
-                    <p style="font-weight: 500; margin-bottom: 10px;">Ingresa tu nombre completo para confirmar:</p>
-                    <input type="text" name="Nombre_del_Invitado" placeholder="Ej: Diana Laura Sánchez" required 
-                        style="padding: 12px; margin-bottom: 20px; width: 100%; max-width: 300px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Montserrat', sans-serif;">
-
-                    <button type="submit" class="rsvp-btn">
-                        CONFIRMAR ASISTENCIA
-                    </button>
-                </form>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9MMlHOZqwBGrUlKoldrFjzFJic1aJxC8d3vh6HuBV87e8pA/viewform?usp=header" 
+                   target="_blank" 
+                   class="rsvp-btn">
+                    <i class="fas fa-check-circle"></i> CONFIRMAR ASISTENCIA
+                </a>
+                
                 <p style="margin-top: 40px; font-size: 0.9rem;">
                     Por favor confirmar antes del 20 de Noviembre de 2025.
                 </p>
             </div>
         </footer>
-        
         <div class="music-control" onclick="toggleMusic()">
             <i class="fas fa-music"></i>
         </div>
