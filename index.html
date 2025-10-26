@@ -165,6 +165,8 @@
             font-family: 'Great Vibes', cursive;
             font-size: 5.5rem;
             margin: 0;
+            /* CAMBIO 1: Añadir margen inferior para separar de la fecha */
+            margin-bottom: 30px; 
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
@@ -187,13 +189,14 @@
             font-size: 3rem;
             margin: 20px 0;
             color: var(--light-color);
-        }        
+        } 
         
+        /* CAMBIO 2: Aumentar tamaño y espaciado de la fecha */
         .date-display {
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            margin: 30px 0;
-            font-weight: 300;
+            font-size: 2.2rem; /* Más grande */
+            letter-spacing: 5px; /* Más espacio entre caracteres */
+            margin: 10px 0; /* Ajuste de margen después de aumentar h1 margin-bottom */
+            font-weight: 400; /* Un poco más de grosor */
         }
         
         .countdown {
@@ -507,12 +510,20 @@
         @media (max-width: 768px) {
             h1 {
                 font-size: 3.5rem;
+                /* Mantiene el nuevo margen en móvil */
+                margin-bottom: 20px; 
             }
             
             h2 {
                 font-size: 2.5rem;
             }
             
+            /* Ajuste de fecha en móvil */
+            .date-display { 
+                font-size: 1.6rem; 
+                letter-spacing: 4px;
+            }
+
             .countdown-box {
                 padding: 15px 10px;
                 min-width: 70px;
@@ -563,8 +574,7 @@
         <header>
             <div class="header-content">
                 <h1>Julio & Cinthya</h1>
-                <div class="date-display">20 DE DICIEMBRE DE 2025</div>
-                
+                <div class="date-display">20 / DICIEMBRE / 2025</div>
                 <div class="countdown" id="countdown">
                     <div class="countdown-box">
                         <div class="countdown-number" id="days">00</div>
@@ -590,17 +600,14 @@
             <div class="container">
                 <div class="section-title">
                     <p>Acompáñanos a celebrar nuestra boda y ser testigo de nuestra unión. </p>
-                </div>    
-                
+                </div> 
                 <div class="event-details">
                     <div class="event-card animate-on-scroll slide-up">
                         <i class="fas fa-church"></i>
-                        <h4>Ceremonia Religiosa</h4>
-                        
+                        <h4>Ceremonia Religiosa</h4>                         
                         <p><i class="fas fa-map-marker-alt"></i> Templo de San Patricio</p>
                         <p><i class="fas fa-address-card"></i> Blvd. Guanajuato 3410, Residencial Punta del Este</p>
-                        <p><i class="fas fa-clock"></i> 18:00 horas</p>
-                        
+                        <p><i class="fas fa-clock"></i> 18:00 horas</p>                         
                         <a href="https://www.google.com/maps/place/Templo+de+San+Patricio/@21.1264753,-101.611713,17z/data=!3m1!4b1!4m6!3m5!1s0x842bbc2bc1877207:0xf4da89528fc0beae!8m2!3d21.1264753!4d-101.611713!16s%2Fg%2F11c1wp2vrq?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-ubicacion">
                             Ver Ubicación
                         </a>
@@ -625,7 +632,7 @@
         <section class="dress-code">
             <div class="container">
                 <div class="dress-code-content-new animate-on-scroll slide-up">
-                    <h2>Dress Code</h2>                    
+                    <h2>Dress Code</h2>                      
                     <img src="dresscode.jpeg" alt="Información de código de vestimenta: tonos y reglas" class="dress-code-image">
                 </div>
             </div>
@@ -634,9 +641,9 @@
             <div class="container">
                 <div class="child-free-content animate-on-scroll slide-up">
                     <p>Queremos que disfruten y bailen sin parar, es por ello que hemos decidido celebrar nuestra boda </p>
-                    <h2>Sin Niños</h2>                    
+                    <h2>Sin Niños</h2>                      
                     <p>Esperamos que esta sea una oportunidad para que disfrutes de una noche sin preocupaciones.</p>
-                    <p>¡Agradecemos su comprensión!</p>                    
+                    <p>¡Agradecemos su comprensión!</p>                      
                 </div>
             </div>
         </section>
@@ -649,13 +656,13 @@
                         <i class="fas fa-gift" style="color: white;"></i>
                     </div>
                     <p>Tu presencia es el mejor regalo que podríamos recibir</p>
-                    <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p>                   
+                    <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p>                 
                     <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51750416" class="gift-link" target="_blank">
                         <i class="fas fa-store"></i> Liverpool - Mesa de Regalos
                     </a>
                 </div>
             </div>
-        </section>               
+        </section>              
         
         <footer>
             <h4>Confirma Asistencia</h4>
@@ -743,7 +750,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Control de música        
+        // Control de música        
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
