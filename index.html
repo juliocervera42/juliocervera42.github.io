@@ -13,7 +13,7 @@
             --accent-color: #8F9779; /* Grisáceo Olivo */
             --light-color: #F5F5F0; /* Blanco Crema */
             --dark-color: #2F4F4F; /* Gris Pizarra Oscuro */
-            --verde-clarito: #66e583;           
+            --verde-clarito: #66e583;            
         }
 
         body {
@@ -360,7 +360,7 @@
         }
         
         .gift-container {
-            max-width: 600px;
+            max-width: 600px; /* Se restablece el ancho para un mejor diseño en solitario */
             margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
@@ -371,10 +371,33 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .gift-option-container {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.5); /* Borde sutil para resaltar el bloque */
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .gift-option-container h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .gift-option-container i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: white;
+        }
         
         .gift-link {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 15px 30px;
             background: white;
             color: var(--primary-color);
@@ -628,12 +651,34 @@
                     </div>
                     <p>Tu presencia es el mejor regalo que podríamos recibir.</p>
                     <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p>
+                    
                     <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51750416" class="gift-link" target="_blank">
                         <i class="fas fa-store"></i> Liverpool - Mesa de Regalos
                     </a>
+                    
+                    <div class="gift-option-container">
+                        <h5>
+                            <i class="fas fa-credit-card"></i> Transferencia
+                        </h5>
+                        <p>
+                            Si prefieres realizar un obsequio en efectivo, puedes hacerlo mediante transferencia bancaria:
+                        </p>
+                        <p style="font-weight: 500;">
+                            **Banco:** [NOMBRE DEL BANCO]
+                        </p>
+                        <p style="font-weight: 500;">
+                            **Cuenta:** [NÚMERO DE CUENTA]
+                        </p>
+                        <p style="font-weight: 500;">
+                            **CLABE:** [NÚMERO CLABE]
+                        </p>
+                        <p style="font-size: 0.9rem; margin-top: 15px;">
+                            *Asegúrate de poner tu nombre en el concepto.*
+                        </p>
+                        </div>
                 </div>
             </div>
-        </section>        
+        </section> 	 	
         <footer>
             <h4>Confirma Asistencia</h4>
             <div class="container">
@@ -643,8 +688,8 @@
                 </div>
                 
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9MMlHOZqwBGrUlKoldrFjzFJic1aJxC8d3vh6HuBV87e8pA/viewform?usp=header" 
-                   target="_blank" 
-                   class="rsvp-btn">
+                    target="_blank" 
+                    class="rsvp-btn">
                     <i class="fas fa-check-circle"></i> CONFIRMAR ASISTENCIA
                 </a>
                 
@@ -721,7 +766,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Control de música 					            
+        // Control de música 											
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();

@@ -13,7 +13,7 @@
             --accent-color: #8F9779; /* Grisáceo Olivo */
             --light-color: #F5F5F0; /* Blanco Crema */
             --dark-color: #2F4F4F; /* Gris Pizarra Oscuro */
-            --verde-clarito: #66e583;           
+            --verde-clarito: #66e583;            
         }
 
         body {
@@ -360,7 +360,7 @@
         }
         
         .gift-container {
-            max-width: 600px;
+            max-width: 900px; /* Se aumentó el ancho para dos opciones en escritorio */
             margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
@@ -372,9 +372,19 @@
             transform: translateY(0);
         }
         
-        .gift-link {
-            display: inline-block;
+        /* Estilo para el contenedor de opciones de regalo */
+        .gift-options-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Para que bajen a una línea en móvil */
+            gap: 20px; /* Espacio entre los botones */
             margin-top: 30px;
+        }
+
+        .gift-link {
+            display: flex; /* Para alinear el icono y el texto */
+            align-items: center;
+            justify-content: center;
             padding: 15px 30px;
             background: white;
             color: var(--primary-color);
@@ -383,13 +393,33 @@
             font-weight: 500;
             transition: all 0.3s;
             border: 2px solid white;
+            max-width: 400px; /* Máximo ancho para cada opción */
+            flex-grow: 1; /* Permite que el botón crezca para ocupar el espacio */
+            min-width: 250px;
         }
         
         .gift-link:hover {
             background: transparent;
             color: white;
         }
+
+        .gift-link i {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: var(--primary-color); /* Icono en color al pasar el mouse */
+            transition: color 0.3s;
+        }
+
+        .gift-link:hover i {
+            color: white;
+        }
         
+        .account-details {
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
         /* ESTILOS DEL FOOTER ACTUALIZADOS PARA SER IGUAL AL HEADER */
         footer {
             background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(85, 107, 47, 0.8)),
@@ -411,21 +441,26 @@
             margin-bottom: 30px;
         }
         
+        /* Estilos para el nuevo botón de RSVP */
         .rsvp-btn {
             display: inline-block;
             padding: 15px 40px;
-            background: var(--secondary-color);
-            color: white;
+            background: #FFD700; /* Dorado para destacar el botón de acción */
+            color: var(--dark-color);
             text-decoration: none;
             border-radius: 30px;
-            font-weight: 500;
+            font-weight: 700; /* Más peso para que se vea importante */
+            font-size: 1.1rem;
             transition: all 0.3s;
-            border: 2px solid var(--secondary-color);
+            border: 2px solid #FFD700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 20px; /* Separación del texto de abajo */
         }
         
         .rsvp-btn:hover {
             background: transparent;
-            color: var(--secondary-color);
+            color: #FFD700;
+            border-color: #FFD700;
         }
         
         .music-control {
@@ -517,6 +552,17 @@
             footer h4 {
                 font-size: 2rem;
             }
+            
+            .rsvp-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            /* Asegura que los botones de regalo se apilen en móvil */
+            .gift-options-container {
+                flex-direction: column; 
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -562,7 +608,7 @@
                 <div class="event-details">
                     <div class="event-card animate-on-scroll slide-up">
                         <i class="fas fa-church"></i>
-                        <h4>Ceremonia Religiosa</h4> 
+                        <h4>Ceremonia Religiosa</h4>
                         <p><i class="fas fa-map-marker-alt"></i> Templo de San Patricio</p>
                         <p><i class="fas fa-address-card"></i> Blvd. Guanajuato 3410, Residencial Punta del Este</p>
                         <p><i class="fas fa-clock"></i> 18:00 horas</p>
@@ -589,6 +635,7 @@
         
         <section class="dress-code" id="dresscode">
             <div class="container">
+                
                 <div class="content-card animate-on-scroll slide-up">
                     <div class="section-title" style="margin-top: 0; margin-bottom: 30px;">
                         <h2>Dress Code</h2> 
@@ -601,9 +648,9 @@
             <div class="container">
                 <div class="content-card animate-on-scroll slide-up">
                     <p>Queremos que disfruten y bailen sin parar, es por ello que hemos decidido celebrar nuestra boda </p>
-                    <h2>Sin Niños</h2> 					                      
+                    <h2>Sin Niños</h2>
                     <p>Deseamos que esta sea una oportunidad para que gocen de una noche sin preocupaciones.</p>
-                    <p>¡Agradecemos su comprensión!</p> 					                      
+                    <p>¡Agradecemos su comprensión!</p>
                 </div>
             </div>
         </section>
@@ -616,14 +663,26 @@
                         <i class="fas fa-gift" style="color: white;"></i>
                     </div>
                     <p>Tu presencia es el mejor regalo que podríamos recibir.</p>
-                    <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p> 				               
-                    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51750416" class="gift-link" target="_blank">
-                        <i class="fas fa-store"></i> Liverpool - Mesa de Regalos
-                    </a>
+                    <p>Sin embargo, si deseas hacernos un obsequio, te damos las siguentes opciones:</p>
+                    
+                    <div class="gift-options-container">
+                        <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51750416" class="gift-link" target="_blank">
+                            <i class="fas fa-store"></i> Liverpool - Mesa de Regalos
+                        </a>
+                        
+                        <div class="gift-link" style="cursor: default;">
+                            <i class="fas fa-credit-card"></i> Transferencia
+                        </div>
+                    </div>
+                    <p class="account-details">
+                        **Para Transferencia:** Por favor, contacta a los novios para el número de cuenta.
+                    </p>
+                    <p style="font-weight: 300; font-size: 0.9rem;">
+                         *Aquí puedes añadir los datos bancarios: Banco, Cuenta, CLABE. Ejemplo: Banco: BANORTE | Cuenta: XXXXXXXXXX | CLABE: XXXXXXXXXXXXXXXXXX*
+                    </p>
                 </div>
             </div>
-        </section> 					              
-        
+        </section> 	 	
         <footer>
             <h4>Confirma Asistencia</h4>
             <div class="container">
@@ -632,8 +691,10 @@
                     <p>Esperamos compartir este día tan especial contigo</p>
                 </div>
                 
-                <a href="mailto:juliocervera42@gmail.com" class="rsvp-btn">
-                    CONFIRMAR ASISTENCIA
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9MMlHOZqwBGrUlKoldrFjzFJic1aJxC8d3vh6HuBV87e8pA/viewform?usp=header" 
+                    target="_blank" 
+                    class="rsvp-btn">
+                    <i class="fas fa-check-circle"></i> CONFIRMAR ASISTENCIA
                 </a>
                 
                 <p style="margin-top: 40px; font-size: 0.9rem;">
@@ -641,7 +702,6 @@
                 </p>
             </div>
         </footer>
-        
         <div class="music-control" onclick="toggleMusic()">
             <i class="fas fa-music"></i>
         </div>
@@ -710,7 +770,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Control de música 					            
+        // Control de música 											
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
