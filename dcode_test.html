@@ -14,8 +14,7 @@
             --light-color: #F5F5F0; /* Blanco Crema */
             --dark-color: #2F4F4F; /* Gris Pizarra Oscuro */
             --verde-clarito: #66e583;
-            /* Nuevo color para el contador: Dorado/Oro para más elegancia */
-            --countdown-highlight: #FFD700; 
+            /* Eliminamos --countdown-highlight ya que no usaremos el dorado */
         }
 
         body {
@@ -193,7 +192,7 @@
         } 
         
         .date-display {
-            font-size: 2.2rem;
+            font-size: 1.2rem;
             letter-spacing: 5px; 
             margin: 10px 0; 
             font-weight: 400; 
@@ -228,47 +227,46 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben */
         }
         
         /* ************************************************* */
-        /* ESTILOS DEL CONTADOR MEJORADOS PARA SER MÁS BONITOS */
+        /* ESTILOS DEL CONTADOR MEJORADOS (VERDE Y ALINEADO) */
         /* ************************************************* */
         .countdown-box {
-            /* Cambio a un fondo más opaco con borde dorado */
             background-color: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(8px); /* Blur un poco más fuerte */
-            color: var(--countdown-highlight); /* Color principal: Dorado */
-            padding: 30px 20px; /* Un poco más de padding */
-            border-radius: 5px; /* Bordes rectos con esquinas suaves */
+            backdrop-filter: blur(8px); 
+            color: white; /* Color principal: Verde Olivo Claro */
+            padding: 30px 20px; 
+            border-radius: 5px; 
             min-width: 100px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), /* Sombra oscura para profundidad */
-                        0 0 20px rgba(255, 215, 0, 0.3); /* Resplandor dorado sutil */
-            border: 2px solid var(--countdown-highlight); /* Borde de color dorado */
-            transition: transform 0.2s ease-out; /* Transición suave */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
+                        0 0 20px var(--secondary-color); /* Resplandor verde sutil */
+            border: 2px solid var(--secondary-color); /* Borde de color verde */
+            transition: transform 0.2s ease-out; 
         }
 
         .countdown-box:hover {
-            transform: scale(1.05); /* Efecto hover para interactividad */
+            transform: scale(1.05); 
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4),
-                        0 0 30px rgba(255, 215, 0, 0.5);
+                        0 0 30px var(--secondary-color);
         }
         
         .countdown-number {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem; /* Número más grande */
-            font-weight: 700; /* Negrita para destacar */
-            line-height: 1; /* Para que no haya espacio extra */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra al número */
-            color: white; /* Color blanco dentro de la caja dorada */
+            font-size: 3.5rem; 
+            font-weight: 700; 
+            line-height: 1; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+            color: white; /* Números en blanco para contraste */
         }
         
         .countdown-label {
-            font-size: 0.9rem; /* Etiqueta un poco más pequeña */
+            font-size: 0.9rem; 
             text-transform: uppercase;
-            letter-spacing: 3px; /* Más espaciado entre letras */
+            letter-spacing: 3px; 
             font-weight: 500;
-            color: var(--countdown-highlight); /* Etiqueta en dorado */
+            color:white;; /* Etiqueta en un verde más clarito */
             margin-top: 10px;
         }
         /* ************************************************* */
@@ -277,7 +275,7 @@
         section {
             padding: 100px 0;
             text-align: center;
-            background-color: var(--light-color); /* Fondo estándar para todas las secciones */
+            background-color: var(--light-color); 
         }
         
         .section-title {
@@ -373,7 +371,7 @@
         
         /* Estilos para el contenido enmarcado en blanco (Dress Code y Sin Niños) */
         .content-card {
-            max-width: 600px; /* Ancho máximo para el contenido dentro de la tarjeta */
+            max-width: 600px; 
             margin: 0 auto;
             background: white;
             padding: 50px;
@@ -392,12 +390,12 @@
         /* ESTILOS DE LA IMAGEN DE DRESS CODE */
         .dress-code-image {
             width: 100%;
-            max-width: 400px; /* Controla el tamaño de la imagen dentro de la tarjeta */
+            max-width: 400px; 
             height: auto;
-            margin: 30px auto 0; /* Margen superior para separar del texto, 0 abajo */
+            margin: 30px auto 0; 
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: block; /* Asegura que el margin: auto funcione */
+            display: block; 
         }
         
         .gift-section {
@@ -407,7 +405,7 @@
         }
         
         .gift-container {
-            max-width: 600px; /* Se restablece el ancho para un mejor diseño en solitario */
+            max-width: 600px; 
             margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
@@ -422,7 +420,7 @@
         .gift-option-container {
             margin-top: 30px;
             padding: 20px;
-            border: 1px dashed rgba(255, 255, 255, 0.5); /* Borde sutil para resaltar el bloque */
+            border: 1px dashed rgba(255, 255, 255, 0.5); 
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.1);
         }
@@ -485,22 +483,22 @@
         .rsvp-btn {
             display: inline-block;
             padding: 15px 40px;
-            background: #FFD700; /* Dorado para destacar el botón de acción */
+            background: var(--verde-clarito); /* Usamos el verde clarito para el botón de RSVP */
             color: var(--dark-color);
             text-decoration: none;
             border-radius: 30px;
-            font-weight: 700; /* Más peso para que se vea importante */
+            font-weight: 700; 
             font-size: 1.1rem;
             transition: all 0.3s;
-            border: 2px solid #FFD700;
+            border: 2px solid var(--verde-clarito);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            margin-bottom: 20px; /* Separación del texto de abajo */
+            margin-bottom: 20px; 
         }
         
         .rsvp-btn:hover {
             background: transparent;
-            color: #FFD700;
-            border-color: #FFD700;
+            color: var(--verde-clarito);
+            border-color: var(--verde-clarito);
         }
         
         .music-control {
@@ -570,19 +568,31 @@
                 font-size: 1.8rem;
             }
             
+            .countdown {
+                /* Para que el contador se alinee en una sola fila en móvil */
+                flex-wrap: nowrap; 
+                overflow-x: auto; /* Permite scroll horizontal si es necesario */
+                padding-bottom: 10px; /* Espacio para la barra de scroll si aparece */
+                -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+                justify-content: flex-start; /* Alinea los elementos al inicio */
+                gap: 10px; /* Reduce el espacio entre cajas en móvil */
+                width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            }
+
             .countdown-box {
-                padding: 15px 10px;
-                min-width: 70px;
-                border: 1px solid var(--countdown-highlight); /* Ajuste para móvil */
+                padding: 15px 8px; /* Reducir padding para que quepa todo */
+                min-width: 65px; /* Reducir min-width */
+                border: 1px solid var(--secondary-color); /* Borde más delgado */
+                flex-shrink: 0; /* Evita que las cajas se encojan */
             }
             
             .countdown-number {
-                font-size: 2.5rem; /* Ajuste para móvil */
+                font-size: 2.2rem; /* Ajuste para móvil: números un poco más pequeños */
             }
             
             .countdown-label {
-                font-size: 0.8rem;
-                letter-spacing: 2px;
+                font-size: 0.7rem; /* Ajuste para móvil: etiquetas más pequeñas */
+                letter-spacing: 1px; /* Menos espaciado */
             }
             
             section {
@@ -594,7 +604,7 @@
                 margin: 0 20px;
             }
             
-            .content-card { /* Ajuste para móvil */
+            .content-card { 
                 padding: 30px 20px;
             }
             
@@ -813,7 +823,7 @@
         
         // Contador regresivo
         function updateCountdown() {
-            const weddingDate = new Date("December 20, 2025 17:00:00").getTime();
+            const weddingDate = new Date("December 20, 2025 00:00:00").getTime();
             const now = new Date().getTime();
             const distance = weddingDate - now;
             
