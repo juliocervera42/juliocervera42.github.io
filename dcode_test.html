@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,7 +13,9 @@
             --accent-color: #8F9779; /* Grisáceo Olivo */
             --light-color: #F5F5F0; /* Blanco Crema */
             --dark-color: #2F4F4F; /* Gris Pizarra Oscuro */
-            --verde-clarito: #66e583;            
+            --verde-clarito: #66e583;
+            /* Nuevo color para el contador: Dorado/Oro para más elegancia */
+            --countdown-highlight: #FFD700; 
         }
 
         body {
@@ -229,27 +231,47 @@
             flex-wrap: wrap;
         }
         
+        /* ************************************************* */
+        /* ESTILOS DEL CONTADOR MEJORADOS PARA SER MÁS BONITOS */
+        /* ************************************************* */
         .countdown-box {
-            background-color: rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
-            color: white;
-            padding: 25px 15px;
-            border-radius: 10px;
+            /* Cambio a un fondo más opaco con borde dorado */
+            background-color: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(8px); /* Blur un poco más fuerte */
+            color: var(--countdown-highlight); /* Color principal: Dorado */
+            padding: 30px 20px; /* Un poco más de padding */
+            border-radius: 5px; /* Bordes rectos con esquinas suaves */
             min-width: 100px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), /* Sombra oscura para profundidad */
+                        0 0 20px rgba(255, 215, 0, 0.3); /* Resplandor dorado sutil */
+            border: 2px solid var(--countdown-highlight); /* Borde de color dorado */
+            transition: transform 0.2s ease-out; /* Transición suave */
+        }
+
+        .countdown-box:hover {
+            transform: scale(1.05); /* Efecto hover para interactividad */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4),
+                        0 0 30px rgba(255, 215, 0, 0.5);
         }
         
         .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem; /* Número más grande */
+            font-weight: 700; /* Negrita para destacar */
+            line-height: 1; /* Para que no haya espacio extra */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra al número */
+            color: white; /* Color blanco dentro de la caja dorada */
         }
         
         .countdown-label {
-            font-size: 1rem;
+            font-size: 0.9rem; /* Etiqueta un poco más pequeña */
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px; /* Más espaciado entre letras */
+            font-weight: 500;
+            color: var(--countdown-highlight); /* Etiqueta en dorado */
+            margin-top: 10px;
         }
+        /* ************************************************* */
         
         /* Resto de Estilos - [CÓDIGO OMITIDO POR BREVEDAD] */
         section {
@@ -551,10 +573,16 @@
             .countdown-box {
                 padding: 15px 10px;
                 min-width: 70px;
+                border: 1px solid var(--countdown-highlight); /* Ajuste para móvil */
             }
             
             .countdown-number {
-                font-size: 2rem;
+                font-size: 2.5rem; /* Ajuste para móvil */
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
             }
             
             section {
@@ -667,7 +695,7 @@
                     <div class="section-title" style="margin-top: 0; margin-bottom: 30px;">
                         <h2>Dress Code</h2> 
                     </div> 
-                    <img src="dresscode.jpeg" alt="Información de código de vestimenta: tonos y reglas" class="dress-code-image">
+                    <img src="dresscode_final.jpeg" alt="Información de código de vestimenta: tonos y reglas" class="dress-code-image">
                 </div>
             </div>
         </section>
@@ -715,7 +743,7 @@
                         </div>
                 </div>
             </div>
-        </section>       
+        </section>      
         <footer>
             <h4>Confirma Asistencia</h4>
             <div class="container">
@@ -803,7 +831,7 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
         
-        // Control de música                                     
+        // Control de música 
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
